@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Future Coaching Classes - Admin Panel</title>
+
+<style>
+*{
+  box-sizing:border-box;
+  font-family:Arial,sans-serif;
+}
+body{
+  margin:0;
+  background:#eef4ff;
+  color:#172033;
+}
+header{
+  background:linear-gradient(135deg,#182848,#4b6cb7);
+  color:white;
+  text-align:center;
+  padding:30px 15px;
+}
+.container{
+  max-width:700px;
+  margin:25px auto;
+  padding:15px;
+}
+.box{
+  background:white;
+  padding:22px;
+  border-radius:18px;
+  margin-bottom:20px;
+  box-shadow:0 7px 25px #0002;
+}
+h2{
+  color:#243b7a;
+}
+label{
+  display:block;
+  font-weight:bold;
+  margin-top:14px;
+  margin-bottom:6px;
+}
+input,select{
+  width:100%;
+  padding:12px;
+  border:1px solid #ccd3df;
+  border-radius:8px;
+  font-size:15px;
+}
+button{
+  border:0;
+  padding:12px 18px;
+  border-radius:25px;
+  margin-top:18px;
+  font-weight:bold;
+  color:white;
+  background:#2563eb;
+}
+.clear{
+  background:#dc2626;
+}
+.resource{
+  border:1px solid #ddd;
+  padding:15px;
+  border-radius:12px;
+  margin-top:12px;
+}
+.resource a{
+  color:#2563eb;
+  font-weight:bold;
+  margin-right:12px;
+}
+.delete{
+  background:#dc2626;
+  padding:8px 12px;
+  margin-top:10px;
+}
+.back{
+  display:inline-block;
+  color:white;
+  text-decoration:none;
+  margin-top:10px;
+  font-weight:bold;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+<h1>Future Coaching Classes</h1>
+<p>Admin Panel</p>
+<a class="back" href="index.html">← Back to Website</a>
+</header>
+
+<div class="container">
+
+<div class="box">
+
+<h2>Add Study Material</h2>
+
+<label>Class</label>
+<select id="className">
+<option>KG - 5</option>
+<option>6 - 8</option>
+<option>9 - 10</option>
+<option>11 - 12</option>
+</select>
+
+<label>Subject</label>
+<select id="subject">
+<option>Mathematics</option>
+<option>Science</option>
+<option>English</option>
+<option>Hindi</option>
+<option>G.K.</option>
+</select>
+
+<label>Topic / Chapter</label>
+<input id="topic" type="text" placeholder="Enter topic or chapter">
+
+<label>Notes PDF Link</label>
+<input id="notes" type="url" placeholder="Paste PDF link">
+
+<label>Video Link</label>
+<input id="video" type="url" placeholder="Paste YouTube video link">
+
+<label>Date</label>
+<input id="date" type="date">
+
+<button onclick="publishMaterial()">Publish Material</button>
+<button class="clear" onclick="clearForm()">Clear</button>
+
+</div>
+
+<div class="box">
+
+<h2>Published Materials</h2>
+
+<div id="resourceList">
+No material published yet.
+</div>
+
+</div>
+
+</div>
+
+<script>
+
+function getResources(){
+  return JSON.parse(localStorage.getItem("futureResources") || "[]");
+}
+
+function saveResources(data){
+  localStorage.setItem("futureResources", JSON.stringify(data));
+}
+
+function publishMaterial(){
+
+  const className = document.getElementById("className").value;
+  const subject = document.getElementById("subject").value;
+  const topic = document.getElementById("topic").value.trim();
+  const notes = document.getElementById("notes").value.trim();
+  const video = document.getElementById("video").value.trim();
+  const date = document.getElementById("date").value;
+
+  if(!topic){
+    alert("Please enter Topic / Chapter");
+    return;
+  }
+
+  const resources = getResources();
+
+  resources.unshift({
+    id:Date.now(),
+    className,
+    subject,
+    topic,
+    notes,
+    video,
+    date
+  });
+
+  saveResources(resources);
+
+  alert("Material published successfully!");
+
+  clearForm();
+  showResources();
+}
+
+function clearForm(){
+
+  document.getElementById("topic").value="";
+  document.getElementById("notes").value="";
+  document.getElementById("video").value="";
+  document.getElementById("date").value="";
+
+}
+
+function deleteResource(id){
+
+  if(!confirm("Delete this material?")){
+    return;
+  }
+
+  const resources = getResources()
+    .filter(item => item.id !== id);
+
+  saveResources(resources);
+  showResources();
+}
+
+function showResources(){
+
+  const list = document.getElementById("resourceList");
+  const resources = getResources();
+
+  if(resources.length === 0){
+    list.innerHTML="No material published yet.";
+    return;
+  }
+
+  list.innerHTML="";
+
+  resources.forEach(item => {
+
+    const div = document.createElement("div");
+    div.className="resource";
+
+    div.innerHTML=`
+      <b>${item.className}</b><br>
+      <b>Subject:</b> ${item.subject}<br>
+      <b>Topic:</b> ${item.topic}<br>
+      <b>Date:</b> ${item.date || "Not specified"}<br>
+
+      ${item.notes ? `<a href="${item.notes}" target="_blank">📄 Notes PDF</a>` : ""}
+
+      ${item.video ? `<a href="${item.video}" target="_blank">▶️ Video</a>` : ""}
+
+      <br>
+      <button class="delete" onclick="deleteResource(${item.id})">
+      Delete
+      </button>
+    `;
+
+    list.appendChild(div);
+
+  });
+}
+
+showResources();
+
+</script>
+
+</body>
+</html>
