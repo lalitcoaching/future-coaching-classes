@@ -1,0 +1,1099 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Future Coaching Classes</title>
+
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+
+body{
+font-family:Arial,Helvetica,sans-serif;
+background:#f3f7fc;
+color:#14213d;
+line-height:1.55;
+}
+
+a{text-decoration:none}
+
+.top{
+background:linear-gradient(135deg,#062b66,#0b57c7,#082a63);
+color:#fff;
+position:sticky;
+top:0;
+z-index:50;
+box-shadow:0 3px 15px #0003;
+}
+
+.nav{
+max-width:1200px;
+margin:auto;
+display:flex;
+align-items:center;
+gap:10px;
+padding:10px 16px;
+}
+
+.logo{
+font-size:22px;
+font-weight:900;
+white-space:nowrap;
+margin-right:auto;
+}
+
+.logo span{color:#ffd83d}
+
+.menu{
+display:flex;
+gap:4px;
+flex-wrap:wrap;
+justify-content:flex-end;
+}
+
+.menu a{
+color:#fff;
+padding:8px 12px;
+border-radius:8px;
+font-weight:700;
+font-size:14px;
+}
+
+.menu a:hover{
+background:#ffd83d;
+color:#123;
+}
+
+/* HERO */
+
+.hero{
+background:linear-gradient(120deg,#08295f,#0a4ab3 55%,#06275c);
+color:#fff;
+padding:34px 16px;
+}
+
+.hero-inner{
+max-width:1200px;
+margin:auto;
+display:grid;
+grid-template-columns:310px 1fr;
+gap:32px;
+align-items:center;
+}
+
+.teacher{
+width:100%;
+height:360px;
+object-fit:cover;
+border-radius:18px;
+border:4px solid #fff;
+box-shadow:0 12px 30px #0005;
+}
+
+.badge{
+display:inline-block;
+background:#ffd83d;
+color:#102c61;
+padding:7px 20px;
+border-radius:20px;
+font-weight:900;
+}
+
+.hero h1{
+font-size:clamp(38px,6vw,68px);
+line-height:1.05;
+margin:12px 0;
+}
+
+.hero h1 span{color:#ffd83d}
+
+.hero h2{
+font-size:24px;
+margin-bottom:18px;
+}
+
+.pills{
+display:flex;
+gap:10px;
+flex-wrap:wrap;
+}
+
+.pill{
+border:1px solid #ffffff88;
+border-radius:22px;
+padding:8px 14px;
+font-weight:700;
+}
+
+.hero-bottom{
+margin-top:20px;
+display:flex;
+gap:20px;
+align-items:center;
+flex-wrap:wrap;
+}
+
+.class-badge{
+background:#ffd83d;
+color:#102c61;
+font-size:24px;
+font-weight:900;
+padding:8px 22px;
+transform:skew(-8deg);
+}
+
+/* COMMON */
+
+.container{
+max-width:1200px;
+margin:auto;
+padding:24px 16px;
+}
+
+.section{
+background:#fff;
+border-radius:18px;
+margin:18px 0;
+padding:22px;
+box-shadow:0 5px 20px #1b3a6b12;
+}
+
+.section-title{
+display:flex;
+align-items:center;
+justify-content:space-between;
+gap:15px;
+flex-wrap:wrap;
+margin-bottom:18px;
+}
+
+.section h2{
+color:#0a3c86;
+font-size:28px;
+}
+
+.price{
+background:#fff1a8;
+color:#132d5f;
+border-radius:22px;
+padding:9px 18px;
+font-weight:900;
+}
+
+.grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+gap:14px;
+}
+
+/* COURSES */
+
+.course{
+color:#fff;
+border-radius:15px;
+padding:22px;
+text-align:center;
+min-height:125px;
+display:flex;
+flex-direction:column;
+justify-content:center;
+}
+
+.course:nth-child(1){background:#1686e8}
+.course:nth-child(2){background:#20b979}
+.course:nth-child(3){background:#ff791c}
+.course:nth-child(4){background:#7041dc}
+.course:nth-child(5){background:#ef3155}
+
+.course h3{
+font-size:24px;
+}
+
+/* SUBJECTS */
+
+.two{
+display:grid;
+grid-template-columns:1.25fr 1fr;
+gap:18px;
+}
+
+.subject-grid{
+display:grid;
+grid-template-columns:repeat(5,1fr);
+gap:10px;
+}
+
+.subject{
+background:#f5f9ff;
+border-radius:15px;
+padding:18px;
+text-align:center;
+}
+
+.subject b{
+display:block;
+color:#0a3c86;
+font-size:18px;
+margin-top:5px;
+}
+
+.icon{font-size:30px}
+
+.details p{
+padding:7px 0;
+border-bottom:1px solid #dce6f5;
+}
+
+.details strong{color:#0a3c86}
+
+/* NOTES / VIDEOS */
+
+.cards{
+display:grid;
+grid-template-columns:repeat(4,1fr);
+gap:14px;
+}
+
+.resource{
+background:#f6f9ff;
+border-radius:15px;
+padding:18px;
+}
+
+.resource h3{
+color:#0a3c86;
+margin-bottom:12px;
+}
+
+.resource a{
+display:block;
+background:#fff;
+border:1px solid #dce6f5;
+color:#123f82;
+border-radius:9px;
+padding:9px;
+margin:7px 0;
+font-weight:700;
+}
+
+.resource a:hover{
+background:#eaf2ff;
+}
+
+.note{
+background:#eef6ff;
+border-left:5px solid #0a57c7;
+padding:12px;
+border-radius:8px;
+margin-top:10px;
+}
+
+/* PHOTOS */
+
+.gallery{
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:12px;
+}
+
+.gallery img{
+width:100%;
+height:220px;
+object-fit:cover;
+border-radius:13px;
+}
+
+/* PAYMENT */
+
+.payment{
+text-align:center;
+background:linear-gradient(135deg,#f7fbff,#eef7ff);
+}
+
+.qr{
+width:min(100%,330px);
+border-radius:15px;
+background:#fff;
+padding:10px;
+margin:12px auto;
+display:block;
+}
+
+.upi{
+font-weight:900;
+color:#173f82;
+word-break:break-all;
+}
+
+/* CONTACT */
+
+.contact{
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:12px;
+}
+
+.contact div{
+background:#f5f0ff;
+border-radius:13px;
+padding:17px;
+text-align:center;
+}
+
+.contact h3{
+color:#3b167c;
+}
+
+/* MEMORIAL */
+
+.memorial{
+background:linear-gradient(120deg,#180d08,#40200c,#180d08);
+color:#fff;
+padding:30px 16px;
+text-align:center;
+overflow:hidden;
+}
+
+.mem-inner{
+max-width:1000px;
+margin:auto;
+display:grid;
+grid-template-columns:220px 1fr;
+gap:25px;
+align-items:center;
+}
+
+.papa{
+width:190px;
+height:230px;
+object-fit:cover;
+border:7px solid #d9aa43;
+padding:3px;
+background:#fff;
+border-radius:8px;
+}
+
+.memorial h2{
+font-size:34px;
+}
+
+.memorial h1{
+font-size:clamp(28px,5vw,48px);
+color:#ffd65a;
+margin:5px 0 12px;
+}
+
+/* MANTRA */
+
+.mantra{
+background:#240e28;
+color:#ffd65a;
+border-top:2px solid #d9aa43;
+border-bottom:2px solid #d9aa43;
+padding:10px 0;
+white-space:nowrap;
+overflow:hidden;
+}
+
+.marquee{
+display:inline-block;
+animation:move 24s linear infinite;
+}
+
+@keyframes move{
+from{transform:translateX(100%)}
+to{transform:translateX(-100%)}
+}
+
+/* FOOTER */
+
+footer{
+background:#071a35;
+color:#dce9ff;
+text-align:center;
+padding:22px;
+}
+
+/* MOBILE */
+
+@media(max-width:900px){
+
+.hero-inner{
+grid-template-columns:1fr;
+text-align:center;
+}
+
+.teacher{
+max-width:360px;
+margin:auto;
+}
+
+.pills,
+.hero-bottom{
+justify-content:center;
+}
+
+.two{
+grid-template-columns:1fr;
+}
+
+.cards{
+grid-template-columns:repeat(2,1fr);
+}
+
+.subject-grid{
+grid-template-columns:repeat(3,1fr);
+}
+
+}
+
+@media(max-width:600px){
+
+.nav{
+align-items:flex-start;
+flex-direction:column;
+}
+
+.logo{
+margin:auto;
+}
+
+.menu{
+justify-content:center;
+width:100%;
+}
+
+.menu a{
+font-size:12px;
+padding:7px 8px;
+}
+
+.hero{
+padding-top:24px;
+}
+
+.hero h1{
+font-size:40px;
+}
+
+.hero h2{
+font-size:19px;
+}
+
+.teacher{
+height:330px;
+}
+
+.cards{
+grid-template-columns:1fr;
+}
+
+.subject-grid{
+grid-template-columns:repeat(2,1fr);
+}
+
+.gallery{
+grid-template-columns:1fr;
+}
+
+.mem-inner{
+grid-template-columns:1fr;
+}
+
+.papa{
+margin:auto;
+}
+
+.contact{
+grid-template-columns:1fr;
+}
+
+}
+</style>
+</head>
+
+<body>
+
+<!-- HEADER -->
+
+<header class="top">
+
+<div class="nav">
+
+<div class="logo">
+🎓 Future <span>Coaching Classes</span>
+</div>
+
+<div class="menu">
+
+<a href="#home">Home</a>
+<a href="#courses">Courses</a>
+<a href="#subjects">Subjects</a>
+<a href="#notes">Notes & PDF</a>
+<a href="#videos">Videos</a>
+<a href="#photos">Photos</a>
+<a href="#admission">Admission</a>
+<a href="#payment">Payment</a>
+
+</div>
+
+</div>
+
+</header>
+
+
+<!-- HERO -->
+
+<section class="hero" id="home">
+
+<div class="hero-inner">
+
+<img
+class="teacher"
+src="teacher.png"
+alt="Future Coaching Classes">
+
+<div>
+
+<span class="badge">Welcome to</span>
+
+<h1>
+Future <span>Coaching Classes</span>
+</h1>
+
+<h2>
+सपनों को पढ़ाई से हकीकत बनाने की जगह
+</h2>
+
+<div class="pills">
+
+<span class="pill">👨‍🏫 Expert Guidance</span>
+
+<span class="pill">📖 Easy Learning</span>
+
+<span class="pill">✅ Regular Practice</span>
+
+<span class="pill">📈 Better Result</span>
+
+</div>
+
+<div class="hero-bottom">
+
+<span class="class-badge">
+Class 6 to 10
+</span>
+
+<strong style="font-size:22px;color:#ffd83d">
+All Subjects
+</strong>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<main class="container">
+
+
+<!-- COURSES -->
+
+<section class="section" id="courses">
+
+<div class="section-title">
+
+<div>
+
+<h2>🎓 Our Courses</h2>
+
+<p>अपनी कक्षा के अनुसार बेहतर शिक्षा</p>
+
+</div>
+
+<div class="price">
+₹ वार्षिक फीस: ₹110 प्रति कक्षा (1 वर्ष)
+</div>
+
+</div>
+
+
+<div class="grid">
+
+<div class="course">
+<h3>Class 6</h3>
+<p>सभी विषय • 1 वर्ष</p>
+</div>
+
+<div class="course">
+<h3>Class 7</h3>
+<p>सभी विषय • 1 वर्ष</p>
+</div>
+
+<div class="course">
+<h3>Class 8</h3>
+<p>सभी विषय • 1 वर्ष</p>
+</div>
+
+<div class="course">
+<h3>Class 9</h3>
+<p>सभी विषय • 1 वर्ष</p>
+</div>
+
+<div class="course">
+<h3>Class 10</h3>
+<p>सभी विषय • 1 वर्ष</p>
+</div>
+
+</div>
+
+</section>
+
+
+<!-- SUBJECTS -->
+
+<section class="two" id="subjects">
+
+<div class="section">
+
+<div class="section-title">
+
+<div>
+
+<h2>📚 Subjects</h2>
+
+<p>सभी विषयों की पढ़ाई</p>
+
+</div>
+
+</div>
+
+
+<div class="subject-grid">
+
+<div class="subject">
+<div class="icon">🧮</div>
+<b>Math</b>
+<small>गणित</small>
+</div>
+
+<div class="subject">
+<div class="icon">🧪</div>
+<b>Science</b>
+<small>विज्ञान</small>
+</div>
+
+<div class="subject">
+<div class="icon">📕</div>
+<b>Hindi</b>
+<small>हिंदी</small>
+</div>
+
+<div class="subject">
+<div class="icon">🔤</div>
+<b>English</b>
+<small>अंग्रेजी</small>
+</div>
+
+<div class="subject">
+<div class="icon">🌐</div>
+<b>Social Science</b>
+<small>सामाजिक विज्ञान</small>
+</div>
+
+</div>
+
+</div>
+
+
+<div class="section details">
+
+<h2>💰 Fee Details</h2>
+
+<div class="detail" style="margin-top:12px">
+
+<p>
+<strong>🎓 प्रति कक्षा वार्षिक फीस:</strong>
+₹110
+</p>
+
+<p>
+<strong>📅 अवधि:</strong>
+1 वर्ष
+</p>
+
+<p>
+<strong>📚 विषय:</strong>
+सभी विषय
+</p>
+
+<p>
+<strong>📝 Notes:</strong>
+अध्ययन सामग्री उपलब्ध
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- NOTES -->
+
+<section class="section" id="notes">
+
+<div class="section-title">
+
+<div>
+
+<h2>📝 Notes & PDF</h2>
+
+<p>अध्यायवार नोट्स और महत्वपूर्ण PDF</p>
+
+</div>
+
+</div>
+
+
+<div class="cards">
+
+<div class="resource">
+
+<h3>📕 Class 10 Maths</h3>
+
+<a href="notes/class10-maths.pdf">
+📄 Class 10 Maths Notes
+</a>
+
+</div>
+
+
+<div class="resource">
+
+<h3>🔬 Science</h3>
+
+<a href="notes/science.pdf">
+📄 Science Notes
+</a>
+
+</div>
+
+
+<div class="resource">
+
+<h3>🌍 Social Science</h3>
+
+<a href="notes/social-science.pdf">
+📄 Social Science Notes
+</a>
+
+</div>
+
+
+<div class="resource">
+
+<h3>⭐ Important</h3>
+
+<a href="notes/important-questions.pdf">
+📄 Important Questions
+</a>
+
+</div>
+
+</div>
+
+
+<div class="note">
+
+अपनी PDF को GitHub में
+<b>notes</b>
+folder में डालकर ऊपर दिए नाम के अनुसार रख सकते हो।
+
+</div>
+
+</section>
+
+
+<!-- VIDEOS -->
+
+<section class="section" id="videos">
+
+<div class="section-title">
+
+<div>
+
+<h2>🎥 Educational Videos</h2>
+
+<p>YouTube पर पढ़ाई की वीडियो</p>
+
+</div>
+
+</div>
+
+
+<div class="cards">
+
+<div class="resource">
+
+<h3>▶ Maths</h3>
+
+<a href="#">
+Maths Class
+</a>
+
+</div>
+
+
+<div class="resource">
+
+<h3>▶ Science</h3>
+
+<a href="#">
+Science Class
+</a>
+
+</div>
+
+
+<div class="resource">
+
+<h3>▶ Hindi</h3>
+
+<a href="#">
+Hindi Class
+</a>
+
+</div>
+
+
+<div class="resource">
+
+<h3>▶ Important Topics</h3>
+
+<a href="#">
+Important Video
+</a>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- PHOTOS -->
+
+<section class="section" id="photos">
+
+<div class="section-title">
+
+<div>
+
+<h2>📸 Study Photos</h2>
+
+<p>हमारी पढ़ाई और अध्ययन की झलक</p>
+
+</div>
+
+</div>
+
+
+<div class="gallery">
+
+<img
+src="teacher.png"
+alt="Teacher">
+
+<img
+src="papa.jpg"
+alt="Pandit Ganesh Kumar Tiwari">
+
+<img
+src="teacher.png"
+alt="Future Coaching Classes">
+
+</div>
+
+
+<div class="note">
+
+बाद में अपनी और क्लास की नई photos इसी section में आसानी से जोड़ी जा सकती हैं।
+
+</div>
+
+</section>
+
+
+<!-- PAYMENT -->
+
+<section class="section payment" id="payment">
+
+<h2>💳 Payment / Fee</h2>
+
+<p>
+UPI से भुगतान करने के लिए QR Code Scan करें।
+</p>
+
+
+<img
+class="qr"
+src="scanner.png"
+alt="UPI Payment QR Code">
+
+
+<p class="upi">
+UPI ID: adeshtiwari8438@nyes
+</p>
+
+
+<p class="note">
+
+भुगतान करने से पहले राशि और UPI नाम की जाँच अवश्य करें।
+
+</p>
+
+</section>
+
+
+<!-- ADMISSION -->
+
+<section class="section" id="admission">
+
+<div class="section-title">
+
+<div>
+
+<h2>📞 Admission / Contact</h2>
+
+<p>अधिक जानकारी के लिए संपर्क करें</p>
+
+</div>
+
+</div>
+
+
+<div class="contact">
+
+<div>
+
+<h3>📱 Direct Contact</h3>
+
+<p>Phone / WhatsApp</p>
+
+<small>
+अपना नंबर यहाँ जोड़ें
+</small>
+
+</div>
+
+
+<div>
+
+<h3>📍 Location</h3>
+
+<p>
+अपना पता यहाँ जोड़ें
+</p>
+
+</div>
+
+
+<div>
+
+<h3>🕒 Class Timing</h3>
+
+<p>
+समय यहाँ जोड़ें
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+
+</main>
+
+
+<!-- MEMORIAL -->
+
+<section class="memorial">
+
+<div class="mem-inner">
+
+<img
+class="papa"
+src="papa.jpg"
+alt="पंडित गणेश कुमार तिवारी">
+
+
+<div>
+
+<div style="font-size:28px;color:#ffd65a">
+🪔 ✦ ✦ ✦
+</div>
+
+<h2>
+विनम्र श्रद्धांजलि
+</h2>
+
+<h1>
+पंडित गणेश कुमार तिवारी
+</h1>
+
+<p style="font-size:18px">
+आपका आशीर्वाद हमेशा हमारे साथ रहे...
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- GAYATRI MANTRA -->
+
+<div class="mantra">
+
+<div class="marquee">
+
+॥ ॐ भूर्भुवः स्वः तत्सवितुर्वरेण्यं
+भर्गो देवस्य धीमहि धियो यो नः प्रचोदयात् ॥
+
+&nbsp;&nbsp;&nbsp; ✦ &nbsp;&nbsp;&nbsp;
+
+॥ ॐ भूर्भुवः स्वः तत्सवितुर्वरेण्यं
+भर्गो देवस्य धीमहि धियो यो नः प्रचोदयात् ॥
+
+</div>
+
+</div>
+
+
+<!-- FOOTER -->
+
+<footer>
+
+<b>Future Coaching Classes</b>
+
+<br>
+
+ज्ञान • मेहनत • सफलता
+
+<br>
+
+<small>
+© 2026 Future Coaching Classes
+</small>
+
+</footer>
+
+
+</body>
+</html>
